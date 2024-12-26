@@ -1,0 +1,28 @@
+/* src/components/Card.css */
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 16px;
+    background-color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-text {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .card-text:first-child {
+    font-weight: bold;
+    color: #555;
+  }
+  
