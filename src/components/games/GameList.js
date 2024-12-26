@@ -8,6 +8,7 @@ import Error from '../Error';
 const GameList = ({ games, standings }) => {
   if (!games.length) return <Error message={"No Games Available"} /> ;
   if (!standings.length) return <Error message={"No Standings Available"} /> ;
+  // build the card_game object here and pass to the card component for display
   const card_games = games.map((game) =>{
     return {
       id : game.id,
