@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/index.css';
 import GameList from '@/components/games/GameList';
 import Standings from '@/components/standings/Standings';
 import Loading from '@/components/loading';
@@ -12,7 +11,7 @@ const Home = ({ games, standings, error }) => {
 
   return (
     <div className="container">
-       <GameList games={games} />
+       <GameList games={games} standings={standings} />
       <Standings standings={standings}/>
     </div>
   );
