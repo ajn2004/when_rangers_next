@@ -49,3 +49,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ### `/api/standingsdata`
  Similar to the scheduledata api, except now grabs standing information for the app to use
+
+ hey des!
