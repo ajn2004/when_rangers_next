@@ -5,7 +5,8 @@ import Loading from '@/components/loading';
 import { fetchScheduleData, fetchStandingsData } from '../utils/api';
 
 const Home = ({ games, standings, error }) => {
-  if (error) return <Error message={error} />;
+
+  if (error) return <Error message={typeof error === 'string' ? error : error.message} />;
   if (!games || !standings) return <Loading />;
 
 
@@ -54,7 +55,7 @@ export async function getServerSideProps() {
 
     return { props: { games: extractedGames, standings: allTeams } };
   } catch (error) {
-    return { props: { error: error.message, games: null, standings: null } };
+    return { props: { error: error.message  || 'An unknown error occurred', games: null, standings: null } };
   }
 }
 
