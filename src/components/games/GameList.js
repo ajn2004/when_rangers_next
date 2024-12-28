@@ -6,8 +6,8 @@ import styles from '@/styles/games/GameList.module.css';
 import Error from '../Error';
 
 const GameList = ({ games, standings }) => {
-  if (!games.length) return <Error message={"No Games Available"} /> ;
-  if (!standings.length) return <Error message={"No Standings Available"} /> ;
+  if (!games || !games.length) return <Error message="No Games Available" />;
+  if (!standings || !standings.length) return <Error message="No Standings Available" />;
   // build the card_game object here and pass to the card component for display
   const card_games = games.map((game) =>{
     return {
@@ -17,8 +17,8 @@ const GameList = ({ games, standings }) => {
       awayTeam: game.awayTeam,
       homeTeam: game.homeTeam,
       homePlace: game.homePlace,
-      homeStanding: standings.find(o => o.teamName === game.homeTeam),
-      awayStanding: standings.find(o => o.teamName === game.awayTeam)
+      homeStanding: standings.find(o => o.teamName === game.homeTeam) || {},
+      awayStanding: standings.find(o => o.teamName === game.awayTeam) || {}
     }
   })
 
@@ -36,3 +36,4 @@ GameList.propTypes = {
 };
 
 export default GameList;
+// GameList.js

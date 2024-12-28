@@ -37,10 +37,22 @@ const Card = ({ game }) => {
       <p className={styles.cardText}>
         {game.awayPlace} {game.awayTeam} @ {game.homePlace} {game.homeTeam}
       </p>
-      <p className={styles.cardText}>Date: {formattedDate} {formattedYear} @ {formattedTime}</p>
-      <p className={styles.standings}>{game.awayStanding.teamName}: {game.awayStanding.wins}W - {game.awayStanding.losses}L - {game.awayStanding.otLosses}OTL</p>
-      <p className={styles.standings}>{game.homeStanding.teamName}: {game.homeStanding.wins}W - {game.homeStanding.losses}L - {game.homeStanding.otLosses}OTL</p>
-      <p className={styles.links}>
+      <p className={styles.cardText}>
+        Date: {formattedDate} {formattedYear} @ {formattedTime}
+        </p>
+        <p className={styles.standings}>
+          {game.awayStanding?.teamName || "Unknown Team"}: 
+          {game.awayStanding?.wins || 0}W - 
+          {game.awayStanding?.losses || 0}L - 
+          {game.awayStanding?.otLosses || 0}OTL
+        </p>
+        <p className={styles.standings}>
+          {game.homeStanding?.teamName || "Unknown Team"}: 
+          {game.homeStanding?.wins || 0}W - 
+          {game.homeStanding?.losses || 0}L - 
+          {game.homeStanding?.otLosses || 0}OTL
+        </p>
+        <p className={styles.links}>
         <a href={awayUrl} target="_blank" rel="noopener noreferrer">Away</a>
         <span> &lt;---- View The Game ----&gt; </span>
         <a href={homeUrl} target="_blank" rel="noopener noreferrer">Home</a></p>
@@ -49,3 +61,4 @@ const Card = ({ game }) => {
 };
 
 export default Card;
+// Card.js

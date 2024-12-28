@@ -27,3 +27,4 @@ Standings.propTypes = {
 };
 
 export default Standings;
+// Standings.js
