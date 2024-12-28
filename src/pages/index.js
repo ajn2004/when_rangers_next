@@ -5,7 +5,7 @@ import Loading from '@/components/loading';
 import { fetchScheduleData, fetchStandingsData } from '../utils/api';
 
 const Home = ({ games, standings, error }) => {
-
+  console.log({ games, standings, error })
   if (error) return <Error message={typeof error === 'string' ? error : error.message} />;
   if (!games || !standings) return <Loading />;
 
