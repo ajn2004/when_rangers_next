@@ -7,7 +7,6 @@ import { fetchScheduleData, fetchStandingsData } from '../utils/api';
 const home_teams = ['Rangers','Maple Leafs','Capitals'];
 
 const Home = ({ games, standings, error }) => {
-  console.log({ games, standings, error });
   if (error) return <Error message={typeof error === 'string' ? error : error} />;
   if (!games || !standings) return <Loading />;
 

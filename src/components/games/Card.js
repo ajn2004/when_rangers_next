@@ -63,6 +63,7 @@ const Card = ({ game }) => {
           {game.homeStanding?.otLosses || 0}OTL
         </p>
 
+
     </div>
   );
 };
