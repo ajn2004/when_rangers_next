@@ -9,11 +9,10 @@ const Card = ({ game }) => {
 
   // handle dates
   // Input time in UTC
-  const utcTime = '2024-12-24T00:30:00Z';
 
   // Create a Date object
-  const date = new Date(utcTime);
-
+  const date = new Date();
+  
   // Convert to EST (UTC-5)
   const options = {
     timeZone: 'America/New_York', // EST timezone
@@ -35,7 +34,7 @@ const Card = ({ game }) => {
     <div className={styles.card}>
       {/* <p className={styles.cardText}>Game ID: {game.id}</p> */}
       <p className={styles.cardText}>
-        {game.awayPlace} {game.awayTeam} @ {game.homePlace} {game.homeTeam}
+         {game.awayTeam} @ {game.homePlace} {game.homeTeam}
       </p>
       <p className={styles.cardText}>
         Date: {formattedDate} {formattedYear} @ {formattedTime}

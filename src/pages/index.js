@@ -4,32 +4,57 @@ import Standings from '@/components/standings/Standings';
 import Loading from '@/components/loading';
 import { fetchScheduleData, fetchStandingsData } from '../utils/api';
 
+const home_teams = ['Rangers','Maple Leafs','Capitals'];
+
 const Home = ({ games, standings, error }) => {
-  console.log({ games, standings, error })
+  console.log({ games, standings, error });
   if (error) return <Error message={typeof error === 'string' ? error : error} />;
   if (!games || !standings) return <Loading />;
 
+  // Helper function to get the next game for a given team
+  const getNextGameForTeam = (team) => {
+    const teamGames = games.filter(
+      (game) => game.homeTeam === team || game.awayTeam === team
+    );
+    const futureGames = teamGames.filter((game) => new Date(game.date) >= new Date());
+    return futureGames.length ? futureGames[0] : null; // Return the first future game
+  };
+
+  // Get the next game for each home team
+  const home_team_next_3 = home_teams
+    .map((team) => getNextGameForTeam(team));
+
+  // All future games (not limited to the home teams)
+  const futureGames = games.filter((game) => new Date(game.date) >= new Date());
+  const games1 = futureGames.slice(0, 9); // Limit to next 30 games
 
   return (
     <div className="container">
-       <GameList games={games} standings={standings} />
-      <Standings standings={standings}/>
+      {/* Show next games for home teams */}
+      <GameList games={home_team_next_3} standings={standings} />
+      <br />
+      <GameList games={games1} standings={standings} />
+
+      <Standings standings={standings} />
     </div>
   );
 };
+
 
 // server side data
 export async function getServerSideProps() {
   const baseUrl = process.env.BASE_URL || 'http://localhost:3000'; // Use environment variable for base URL
   try {
     const [scheduleData, standingsData] = await Promise.all([
-        fetchScheduleData(baseUrl),
-        fetchStandingsData(baseUrl),
-      ]);
+      fetchScheduleData(baseUrl),
+      fetchStandingsData(baseUrl),]
+    ); 
 
+    const today = new Date();
     const allWeeks = scheduleData.flatMap((entry) => entry.data.gameWeek || []);
     const allGames = allWeeks.flatMap((entry) => entry.games || []);
-    const extractedGames = allGames.map((game) => ({
+    const extractedGames = allGames.map((game) => (
+      {
       id: game.id,
       date: game.startTimeUTC,
       awayId: game.awayTeam.id,
@@ -39,7 +64,11 @@ export async function getServerSideProps() {
       homePlace: game.homeTeam.placeName.default,
       homeTeam: game.homeTeam.commonName.default,
     }));
-
+    // const filterGames = extractedGames
+    const filterGames = extractedGames.filter((game) => {
+      const gameDate = new Date(game.date)
+      return gameDate >= today
+    });
     const allTeams = standingsData.standings.map((entry) => ({
       teamName: entry.teamCommonName.default,
       leagueStanding: entry.leagueSequence,
@@ -53,7 +82,7 @@ export async function getServerSideProps() {
       streakCount: entry.streakCount,
     }));
 
-    return { props: { games: extractedGames, standings: allTeams } };
+    return { props: { games: filterGames, standings: allTeams } };
   } catch (error) {
     return { props: { error: error.message  || 'An unknown error occurred', games: null, standings: null } };
   }
