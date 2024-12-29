@@ -11,7 +11,7 @@ const Card = ({ game }) => {
   // Input time in UTC
 
   // Create a Date object
-  const date = new Date();
+  const date = new Date(game.date);
   
   // Convert to EST (UTC-5)
   const options = {
