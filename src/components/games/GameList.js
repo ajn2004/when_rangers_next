@@ -19,8 +19,8 @@ const GameList = ({ games, standings }) => {
       homeTeam: game.homeTeam,
       homePlace: game.homePlace,
       homeLogo: game.homeLogoLight,
-      homeStanding: standings.find(o => o.teamName === game.homeTeam) || {},
-      awayStanding: standings.find(o => o.teamName === game.awayTeam) || {}
+      homeStanding: standings.find(o => o.teamName === game.homeTeam),
+      awayStanding: standings.find(o => o.teamName === game.awayTeam)
     }
   })
 

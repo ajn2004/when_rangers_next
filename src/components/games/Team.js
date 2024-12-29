@@ -24,6 +24,8 @@ const Team = ({ team }) => {
           {team.wins || 0}W - 
           {team.losses || 0}L - 
           {team.otLosses || 0}OTL
+          Rank:
+          {team.leagueStanding}
         </p>
     </div>
   );
