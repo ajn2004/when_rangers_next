@@ -8,9 +8,16 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 16px;
     margin: 16px;
+
     /* background-color: #fff; */
     color: #FFFFFF;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Flexbox for centering */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Horizontally center */
+    justify-content: center; /* Vertically center */
+    text-align: center; /* Center text content */
   }
   
   .card:hover {
@@ -29,6 +36,9 @@
     color: #555;
   }
   
+  .dateText{
+    font-size: 30px;
+  }
   .standings{
     color: #D3D3D3;
   }
@@ -47,4 +57,23 @@
   .links a:hover {
     text-decoration: underline; /* Add underline on hover for better UX */
     color: #FFFFFF; /* Optional: Change to white for hover */
+  }
+  .links span {
+    color: #FFFFFF; /* Adjust color as needed */
+    font-style: italic; /* Optional: Add emphasis */
+    margin: 0 8px; /* Add spacing around the text */
+  }
+
+  .teamLogos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  
+  .logo {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    object-fit: contain; /* Preserve aspect ratio */
+    margin: 0 8px;
   }

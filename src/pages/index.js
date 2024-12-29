@@ -32,7 +32,7 @@ const Home = ({ games, standings, error }) => {
     <div className="container">
       {/* Show next games for home teams */}
       <GameList games={home_team_next_3} standings={standings} />
-      <br />
+
       <GameList games={games1} standings={standings} />
 
       <Standings standings={standings} />
@@ -59,9 +59,13 @@ export async function getServerSideProps() {
       date: game.startTimeUTC,
       awayId: game.awayTeam.id,
       awayPlace: game.awayTeam.placeName.default,
+      awayLogoLight: game.awayTeam.logo,
+      awayLogoDark: game.awayTeam.darkLogo,
       awayTeam: game.awayTeam.commonName.default,
       homeId: game.homeTeam.id,
       homePlace: game.homeTeam.placeName.default,
+      homeLogoLight: game.homeTeam.logo,
+      homeLogoDark: game.homeTeam.darkLogo,
       homeTeam: game.homeTeam.commonName.default,
     }));
     // const filterGames = extractedGames

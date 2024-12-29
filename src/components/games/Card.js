@@ -23,7 +23,6 @@ const Card = ({ game }) => {
     minute: '2-digit',
     hour12: false, // Use 24-hour format, set to true for 12-hour format
   };
-
   // Format the date
   const estTime = new Intl.DateTimeFormat('en-US', options).format(date);
 
@@ -33,12 +32,24 @@ const Card = ({ game }) => {
   return (
     <div className={styles.card}>
       {/* <p className={styles.cardText}>Game ID: {game.id}</p> */}
-      <p className={styles.cardText}>
-         {game.awayTeam} @ {game.homePlace} {game.homeTeam}
+      <p className={styles.dateText}>
+        {formattedDate} @ {formattedTime}
       </p>
+      <div className={styles.teamLogos}>
+      <a href={awayUrl} target="_blank" rel="noopener noreferrer">
+        <img src={game.awayLogo} alt={`${game.awayTeam} logo`} className={styles.logo} />
+      </a>
+      <span> @ </span>
+      <a href={homeUrl} target="_blank" rel="noopener noreferrer">
+        <img src={game.homeLogo} alt={`${game.homeTeam} logo`} className={styles.logo} />
+      </a>
+      </div>
+
+      {/* Game info */}
       <p className={styles.cardText}>
-        Date: {formattedDate} {formattedYear} @ {formattedTime}
-        </p>
+      {game.awayPlace} @ {game.homePlace}
+      </p>
+      
         <p className={styles.standings}>
           {game.awayStanding?.teamName || "Unknown Team"}: 
           {game.awayStanding?.wins || 0}W - 
@@ -51,10 +62,7 @@ const Card = ({ game }) => {
           {game.homeStanding?.losses || 0}L - 
           {game.homeStanding?.otLosses || 0}OTL
         </p>
-        <p className={styles.links}>
-        <a href={awayUrl} target="_blank" rel="noopener noreferrer">Away</a>
-        <span> &lt;---- View The Game ----&gt; </span>
-        <a href={homeUrl} target="_blank" rel="noopener noreferrer">Home</a></p>
+
     </div>
   );
 };
