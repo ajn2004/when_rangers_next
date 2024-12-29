@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '@/styles/games/Card.module.css'; // Optional: Add specific styles for the Card component
+import Team from './Team';
 
 const Card = ({ game }) => {
   // handle streaming
@@ -29,41 +30,36 @@ const Card = ({ game }) => {
   // Extract date and time separately
   const [formattedDate, formattedYear, formattedTime] = estTime.split(', ');
 
+  const awayTeam = {
+    logo: game.awayLogo,
+    url: awayUrl,
+    teamName: game.awayStanding?.teamName,
+    wins: game.awayStanding?.wins,
+    losses: game.awayStanding?.losses,
+    otl: game.awayStanding?.otl,
+    place: game.awayPlace
+  }
+
+  const homeTeam = {
+    logo: game.homeLogo,
+    url: homeUrl,
+    teamName: game.homeStanding?.teamName,
+    wins: game.homeStanding?.wins,
+    losses: game.homeStanding?.losses,
+    otl: game.homeStanding?.otl,
+    place: game.homePlace
+  }
+
   return (
     <div className={styles.card}>
       {/* <p className={styles.cardText}>Game ID: {game.id}</p> */}
       <p className={styles.dateText}>
         {formattedDate} @ {formattedTime}
       </p>
-      <div className={styles.teamLogos}>
-      <a href={awayUrl} target="_blank" rel="noopener noreferrer">
-        <img src={game.awayLogo} alt={`${game.awayTeam} logo`} className={styles.logo} />
-      </a>
-      <span> @ </span>
-      <a href={homeUrl} target="_blank" rel="noopener noreferrer">
-        <img src={game.homeLogo} alt={`${game.homeTeam} logo`} className={styles.logo} />
-      </a>
+      <div className={styles.teams}>
+        <Team team={awayTeam} /> @
+        <Team team={homeTeam} />
       </div>
-
-      {/* Game info */}
-      <p className={styles.cardText}>
-      {game.awayPlace} @ {game.homePlace}
-      </p>
-      
-        <p className={styles.standings}>
-          {game.awayStanding?.teamName || "Unknown Team"}: 
-          {game.awayStanding?.wins || 0}W - 
-          {game.awayStanding?.losses || 0}L - 
-          {game.awayStanding?.otLosses || 0}OTL
-        </p>
-        <p className={styles.standings}>
-          {game.homeStanding?.teamName || "Unknown Team"}: 
-          {game.homeStanding?.wins || 0}W - 
-          {game.homeStanding?.losses || 0}L - 
-          {game.homeStanding?.otLosses || 0}OTL
-        </p>
-
-
     </div>
   );
 };

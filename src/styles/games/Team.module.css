@@ -1,0 +1,22 @@
+.teamLogos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  
+  .logo {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    object-fit: contain; /* Preserve aspect ratio */
+    margin: 0 8px;
+  }
+
+  .info{
+    color: #D3D3D3;
+  }
+
+ .team{
+    width: 40%;
+    border: dotted;
+ }

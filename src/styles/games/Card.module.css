@@ -39,9 +39,6 @@
   .dateText{
     font-size: 30px;
   }
-  .standings{
-    color: #D3D3D3;
-  }
 
   .links{
     margin-top: auto;
@@ -64,16 +61,8 @@
     margin: 0 8px; /* Add spacing around the text */
   }
 
-  .teamLogos {
+  .teams{
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 8px;
-  }
-  
-  .logo {
-    width: 150px; /* Adjust size as needed */
-    height: 150px;
-    object-fit: contain; /* Preserve aspect ratio */
-    margin: 0 8px;
   }
