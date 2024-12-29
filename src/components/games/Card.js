@@ -37,7 +37,8 @@ const Card = ({ game }) => {
     wins: game.awayStanding?.wins,
     losses: game.awayStanding?.losses,
     otl: game.awayStanding?.otl,
-    place: game.awayPlace
+    place: game.awayPlace,
+    leagueStanding: game.awayStanding?.leagueStanding
   }
 
   const homeTeam = {
@@ -47,7 +48,8 @@ const Card = ({ game }) => {
     wins: game.homeStanding?.wins,
     losses: game.homeStanding?.losses,
     otl: game.homeStanding?.otl,
-    place: game.homePlace
+    place: game.homePlace,
+    leagueStanding: game.homeStanding?.leagueStanding
   }
 
   return (

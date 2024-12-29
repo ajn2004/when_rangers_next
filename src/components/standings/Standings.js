@@ -8,7 +8,7 @@ const Standings = ({ standings }) => (
     <ul>
       {standings.map((team, index) => (
         <li key={index}>
-          {team.teamName}: {team.wins}W - {team.losses}L - {team.otLosses}OTL
+          {team.teamName}: {team.wins}W - {team.losses}L - {team.otLosses}OTL  League Standing - {team.leagueStanding}
         </li>
       ))}
     </ul>
@@ -22,6 +22,7 @@ Standings.propTypes = {
       wins: PropTypes.number.isRequired,
       losses: PropTypes.number.isRequired,
       otLosses: PropTypes.number.isRequired,
+      leagueStanding: PropTypes.number.isRequired
     })
   ).isRequired,
 };
