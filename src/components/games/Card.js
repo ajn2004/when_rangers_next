@@ -69,7 +69,8 @@ const Card = ({ game }) => {
         {formattedDate} @ {formattedTime}
       </p>
       <div className={styles.teams}>
-        <Team team={awayTeam} /> @
+        <Team team={awayTeam} /> 
+        <span className={styles.operator}>@</span>
         <Team team={homeTeam} />
       </div>
     </div>

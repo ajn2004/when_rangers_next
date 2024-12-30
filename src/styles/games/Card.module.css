@@ -1,12 +1,12 @@
 /* src/components/Card.css */
 
 .card {
-    border: 1px solid #C0C0C0;
-    width: 25%;
+    border: 1px solid #626262;
+    width: 28%;
     background-color: #1D1E23;
     /* background-color: #292D3F;; */
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
     padding: 16px;
     margin: 16px;
 
@@ -26,44 +26,25 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
   
-  .card-text {
-    margin: 8px 0;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .card-text:first-child {
-    font-weight: bold;
-    color: #555;
-  }
-  
+
   .dateText{
     font-size: 30px;
-  }
-
-  .links{
-    margin-top: auto;
-    text-align: center;
-  }
-  .links a {
-    color: #CE1126; /* Rangers red for high contrast */
-    text-decoration: none; /* Remove default underline */
-    font-weight: bold; /* Make it stand out */
-
-  }
-  
-  .links a:hover {
-    text-decoration: underline; /* Add underline on hover for better UX */
-    color: #FFFFFF; /* Optional: Change to white for hover */
-  }
-  .links span {
-    color: #FFFFFF; /* Adjust color as needed */
-    font-style: italic; /* Optional: Add emphasis */
-    margin: 0 8px; /* Add spacing around the text */
   }
 
   .teams{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 105%;
+
+  }
+
+  .separator {
+    padding: 0 px; /* Add spacing around the "@" symbol */
+    margin-top: auto;
+    font-weight: bold; /* Optional: Make the "@" stand out */
+    color: #bf1212; /* Adjust color as needed */
+    text-align: center; /* Ensure the "@" stays centered */
+    font-size: xx-large;
+    border: solid;
   }

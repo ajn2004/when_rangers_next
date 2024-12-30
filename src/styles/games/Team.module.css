@@ -18,6 +18,29 @@
   }
 
  .team{
-    width: 40%;
-    border: dotted;
+    width: 45%;
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: rgb(100, 100, 111);
  }
+
+ .team-name{
+    font-size: 10pt;
+ }
+ .stats {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr 1fr; /* Flexible layout with 4 columns */
+    gap: 8px; /* Add spacing between cells */
+    text-align: center; /* Center align the text */
+    color: #FFFFFF; /* Adjust text color for visibility */
+    margin-bottom: 16px; /* Add spacing below the stats block */
+  }
+  
+  .row {
+    display: contents; /* Allow inline display while adhering to the grid structure */
+  }
+  
+  .row span {
+    padding: 0px; /* Add some spacing within each cell */
+  }
