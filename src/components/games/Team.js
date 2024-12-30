@@ -24,8 +24,12 @@ const Team = ({ team }) => {
           {team.wins || 0}W - 
           {team.losses || 0}L - 
           {team.otLosses || 0}OTL
-          Rank:
-          {team.leagueStanding}
+        </p>
+        <p className={styles.info}>
+          Rank:  {team.leagueStanding}
+        </p>
+        <p className={styles.info}>
+          Streak:  {team.streakCode}{team.streakCount}
         </p>
     </div>
   );
