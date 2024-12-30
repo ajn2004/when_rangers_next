@@ -6,29 +6,46 @@ import styles from '@/styles/games/Team.module.css';
 import Error from '../Error';
 
 const Team = ({ team }) => { 
-    console.log(team.l10otl)
+
   return (
     <div className={styles.team}>
         {/* Team name */}
-        <p className={styles.info}>
+        <div className={styles.teamName}>
             {team.teamName || "Unknown Team"} 
-        </p>
+        </div>
         { /* Handle team logo */}
        <div className={styles.teamLogos}>
             <a href={team.url} target="_blank" rel="noopener noreferrer">
                 <img src={team.logo} alt={`${team.teamName} logo`} className={styles.logo} />
             </a>
         </div>
-        { /* Handle team info */}
-        <p className={styles.info}>
-          {team.wins || 0}W - 
-          {team.losses || 0}L - 
-          {team.otLosses || 0}OTL
-        </p>
-        L10s
-        <p className={styles.info}>
-            {team.l10wins}W - {team.l10loss}L - {team.l10otl}OTL
-        </p>
+        { /* Handle team stats */}
+        <div className={styles.stats}>
+  {/* Header Row */}
+  <div className={styles.row}>
+    <span></span> {/* Empty cell for alignment */}
+    <span>W</span>
+    <span>L</span>
+    <span>OTL</span>
+  </div>
+
+  {/* Team Row */}
+  <div className={styles.row}>
+    <span>R</span>
+    <span>{team.wins || 0}</span>
+    <span>{team.losses || 0}</span>
+    <span>{team.otLosses || 0}</span>
+  </div>
+
+  {/* L10 Row */}
+  <div className={styles.row}>
+    <span>L10</span>
+    <span>{team.l10wins || 0}</span>
+    <span>{team.l10loss || 0}</span>
+    <span>{team.l10otl || 0}</span>
+  </div>
+</div>
+
         <p className={styles.info}>
           Rank:  {team.leagueStanding}
         </p>
