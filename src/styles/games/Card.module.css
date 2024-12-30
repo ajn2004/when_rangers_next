@@ -3,7 +3,8 @@
 .card {
     border: 1px solid #C0C0C0;
     width: 25%;
-    background-color: #00308F;
+    background-color: #1D1E23;
+    /* background-color: #292D3F;; */
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 16px;
