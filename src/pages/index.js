@@ -25,7 +25,7 @@ const Home = ({ games, standings, error }) => {
 
   // All future games (not limited to the home teams)
   const futureGames = games.filter((game) => new Date(game.date) >= new Date());
-  const games1 = futureGames.slice(0, 9); // Limit to next 30 games
+  const games1 = futureGames.slice(0, 30); // Limit to next 30 games
 
   return (
     <div className="container">
