@@ -1,9 +1,7 @@
 // src/components/GameList.js
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from './Card';
 import styles from '@/styles/games/Team.module.css';
-import Error from '../Error';
 
 const Team = ({ team }) => { 
 

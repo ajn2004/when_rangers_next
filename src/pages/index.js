@@ -33,8 +33,6 @@ const Home = ({ games, standings, error }) => {
       <GameList games={home_team_next_3} standings={standings} />
 
       <GameList games={games1} standings={standings} />
-
-      <Standings standings={standings} />
     </div>
   );
 };
