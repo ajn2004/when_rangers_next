@@ -6,7 +6,7 @@ import styles from '@/styles/games/Team.module.css';
 import Error from '../Error';
 
 const Team = ({ team }) => { 
-
+    console.log(team.l10otl)
   return (
     <div className={styles.team}>
         {/* Team name */}
@@ -24,6 +24,10 @@ const Team = ({ team }) => {
           {team.wins || 0}W - 
           {team.losses || 0}L - 
           {team.otLosses || 0}OTL
+        </p>
+        L10s
+        <p className={styles.info}>
+            {team.l10wins}W - {team.l10loss}L - {team.l10otl}OTL
         </p>
         <p className={styles.info}>
           Rank:  {team.leagueStanding}
@@ -44,6 +48,9 @@ Team.propTypes = {
     losses: PropTypes.number.isRequired, // Number of losses
     otl: PropTypes.number.isRequired, // Number of overtime losses
     place: PropTypes.string.isRequired, // Team place or location
+    l10wins: PropTypes.number.isRequired,
+    l10loss: PropTypes.number.isRequired,
+    l10otl: PropTypes.number.isRequired
   };
 
 export default Team;

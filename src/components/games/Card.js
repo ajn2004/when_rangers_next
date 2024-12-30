@@ -40,7 +40,10 @@ const Card = ({ game }) => {
     place: game.awayPlace,
     leagueStanding: game.awayStanding?.leagueStanding,
     streakCode: game.awayStanding?.streakCode,
-    streakCount: game.awayStanding?.streakCount
+    streakCount: game.awayStanding?.streakCount,
+    l10wins: game.awayStanding?.l10Wins,
+    l10loss: game.awayStanding?.l10Losses,
+    l10otl: game.awayStanding?.l10OtLosses
   }
 
   const homeTeam = {
@@ -53,7 +56,10 @@ const Card = ({ game }) => {
     place: game.homePlace,
     leagueStanding: game.homeStanding?.leagueStanding,
     streakCode: game.homeStanding?.streakCode,
-    streakCount: game.homeStanding?.streakCount
+    streakCount: game.homeStanding?.streakCount,
+    l10wins: game.homeStanding?.l10Wins,
+    l10loss: game.homeStanding?.l10Losses,
+    l10otl: game.homeStanding?.l10OTLosses
   }
 
   return (
